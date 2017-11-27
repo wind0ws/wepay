@@ -1,0 +1,58 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.threshold.pay">
+
+    <application>
+
+        <activity android:name=".PayEntryActivity"
+            android:exported="true"
+            android:screenOrientation="behind"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent">
+        </activity>
+
+        <!-- 微信支付 入口Activity. 微信对入口Activity的包名和Activity名称都有要求 -->
+ <!--     需要在AndroidManifest.xml中配置这个。否则微信无法支付
+         <activity-alias
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:targetActivity=".PayEntryActivity"/>
+            -->
+
+        <!-- alipay sdk begin -->
+
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="true"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="true"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+
+        <!-- alipay sdk end -->
+
+
+        <!-- wechat sdk begin -->
+
+        <receiver
+            android:name=".wechat.AppRegisterBroadcastReceiver"
+            android:exported="true"
+            android:permission="com.tencent.mm.plugin.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
+            </intent-filter>
+        </receiver>
+
+        <!-- wechat sdk end -->
+
+
+    </application>
+
+</manifest>
+

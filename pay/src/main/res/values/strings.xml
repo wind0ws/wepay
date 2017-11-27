@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">pay SDK</string>
+    <string name="wepay_waiting">请稍后…</string>
+    <string name="wepay_prepare_for_pay">正在准备支付…</string>
+    <string name="wepay_request_unified_order">正在调用统一下单接口…</string>
+    <string name="wepay_pay_error">支付出现错误</string>
+    <string name="wepay_pay_error_wechat_not_installer_or_support">微信未安装或该版本不支持支付</string>
+</resources>
